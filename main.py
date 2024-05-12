@@ -14,8 +14,8 @@ BOT_USERNAME: Final = '@rollkrypt'
 async def start_command(update: Update, context: CallbackContext):
     keyboard = [
         [InlineKeyboardButton("Let's play Roll Krypt", url='https://rollkrypt-6db9f6.webflow.io/')],
-        [InlineKeyboardButton("Option 2", callback_data='2')],
-        [InlineKeyboardButton("Option 3", callback_data='3')]
+        [InlineKeyboardButton("Support", callback_data='2')],
+        [InlineKeyboardButton("Community", callback_data='3')]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     await update.message.reply_text('******  this is Roll Krypt  ******', reply_markup=reply_markup)
