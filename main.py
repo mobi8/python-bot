@@ -1,13 +1,13 @@
 from typing import Final
 
 # pip install python-telegram-bot
-from telegram import Update
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 
 print('Starting up bot...')
 
-TOKEN: Final = 'YOUR TOKEN'
-BOT_USERNAME: Final = '@your_bot_user'
+TOKEN: Final = '- 6934946956:AAGBtThIVYk2kalQBi0mDCCxXRJly9mZ8vI'
+BOT_USERNAME: Final = '@rollkrypt'
 
 
 # Lets us use the /start command
