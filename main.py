@@ -2,18 +2,23 @@ from typing import Final
 
 # pip install python-telegram-bot
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
+from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes, CallbackContext
 
 print('Starting up bot...')
 
-TOKEN: Final = '- 6934946956:AAGBtThIVYk2kalQBi0mDCCxXRJly9mZ8vI'
+TOKEN: Final = '6934946956:AAGBtThIVYk2kalQBi0mDCCxXRJly9mZ8vI'
 BOT_USERNAME: Final = '@rollkrypt'
 
 
 # Lets us use the /start command
-async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text('Hello there! I\'m a bot. What\'s up?')
-
+async def start_command(update: Update, context: CallbackContext):
+    keyboard = [
+        [InlineKeyboardButton("Let's play Roll Krypt", url='https://rollkrypt-6db9f6.webflow.io/')],
+        [InlineKeyboardButton("Option 2", callback_data='2')],
+        [InlineKeyboardButton("Option 3", callback_data='3')]
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    await update.message.reply_text('******  this is Roll Krypt  ******', reply_markup=reply_markup)
 
 # Lets us use the /help command
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -88,4 +93,3 @@ if __name__ == '__main__':
     print('Polling...')
     # Run the bot
     app.run_polling(poll_interval=5)
-
